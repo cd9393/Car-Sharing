@@ -47,7 +47,7 @@ public class CompanyDAOImpl implements CompanyDAO{
         try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(ADD_COMPANY)) {
             preparedStatement.setString(1,name);
             preparedStatement.execute();
-            System.out.println(name + " was successfully added");
+            System.out.println("The company was created!");
 
         } catch (SQLException e) {
             e.printStackTrace();
