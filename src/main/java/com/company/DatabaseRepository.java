@@ -22,7 +22,7 @@ public class DatabaseRepository {
     }
 
     public void createDatabase() {
-        String sqlCreateDb = "CREATE TABLE IF NOT EXISTS COMPANY(ID INTEGER PRIMARY KEY auto_increment, NAME VARCHAR(64))";
+        String sqlCreateDb = "CREATE TABLE IF NOT EXISTS COMPANY(ID INTEGER PRIMARY KEY auto_increment, NAME VARCHAR(64) UNIQUE NOT NULL)";
         try(Connection connection = connect(); Statement statement = connection.createStatement()) {
             statement.executeUpdate(sqlCreateDb);
         } catch(SQLException e) {

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface CompanyDAO {
     public List<Company> getAllCompanies();
-    public void addCompany();
+    public void addCompany(String name);
 }
