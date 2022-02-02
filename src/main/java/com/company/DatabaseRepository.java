@@ -30,6 +30,15 @@ public class DatabaseRepository {
         }
     }
 
+    public void createCarDatabase(){
+        String sqlCreateCarDb = "CREATE TABLE IF NOT EXISTS CAR(ID INTEGER PRIMARY KEY auto_increment, NAME VARCHAR(64) UNIQUE NOT NULL, COMPANY_ID INT NOT NULL, CONSTRAINT fk_company FOREIGN KEY (COMPANY_ID) REFERENCES COMPANY(ID))";
+        try(Connection connection = connect(); Statement statement = connection.createStatement()) {
+            statement.executeUpdate(sqlCreateCarDb);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Connection connect() {
         Connection connection = null;
         try {
