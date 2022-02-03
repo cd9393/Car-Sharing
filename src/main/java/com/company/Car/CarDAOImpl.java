@@ -8,8 +8,8 @@ import java.util.List;
 
 public class CarDAOImpl implements CarDAO{
 
-    private static final String GET_ALL_CARS = "SELECT * FROM car;";
-    private  static final String ADD_CAR = "INSERT INTO car (name, company_id) VALUES ? ?";
+    private static final String GET_ALL_CARS = "SELECT * FROM car where company_id = ?;";
+    private  static final String ADD_CAR = "INSERT INTO car (name, company_id) VALUES (?, ?);";
 
     public CarDAOImpl() {
 
@@ -29,9 +29,10 @@ public class CarDAOImpl implements CarDAO{
     }
 
     @Override
-    public List<Car> getAllCars() {
+    public List<Car> getAllCars(int company_id) {
         List<Car> results = new ArrayList<>();
         try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_CARS)) {
+            preparedStatement.setInt(1,company_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
                 Car car = new Car(resultSet.getInt("ID"), resultSet.getString("name"), resultSet.getInt("company_id"));

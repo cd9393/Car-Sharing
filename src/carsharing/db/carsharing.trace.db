@@ -1,0 +1,35 @@
+2022-02-03 16:41:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO car (name, company_id) VALUES ? [*]?"; SQL statement:
+INSERT INTO car (name, company_id) VALUES ? ? [42000-210]
+2022-02-03 16:42:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO car (name, company_id) VALUES ? [*]?"; SQL statement:
+INSERT INTO car (name, company_id) VALUES ? ? [42000-210]
+2022-02-03 16:42:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO car (name, company_id) VALUES ? [*]?;"; SQL statement:
+INSERT INTO car (name, company_id) VALUES ? ?; [42000-210]
+2022-02-03 16:43:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO car (name, company_id) VALUES ?[*]?;"; SQL statement:
+INSERT INTO car (name, company_id) VALUES ??; [42000-210]
+2022-02-03 16:44:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO car (name, company_id) VALUES ?, ?; [21002-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:521)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.message.DbException.get(DbException.java:192)
+	at org.h2.command.dml.Insert.prepare(Insert.java:295)
+	at org.h2.command.Parser.prepareCommand(Parser.java:557)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:92)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at com.company.Car.CarDAOImpl.addCar(CarDAOImpl.java:49)
+	at com.company.App.createACar(App.java:121)
+	at com.company.App.runCompanyChoices(App.java:107)
+	at com.company.App.companyMenu(App.java:93)
+	at com.company.App.managerMenu(App.java:62)
+	at com.company.App.displayLoginMenu(App.java:42)
+	at com.company.App.start(App.java:26)
+	at com.company.Main.main(Main.java:12)

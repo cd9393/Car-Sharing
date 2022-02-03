@@ -59,7 +59,7 @@ public class App {
                 int choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
-                        displayCompanies();
+                        companyMenu();
                         break;
                     case 2:
                         createCompany();
@@ -85,11 +85,18 @@ public class App {
         List<Company> companies = companyDAO.getAllCompanies();
         while(isRunning) {
             displayCompanies(companies);
+            System.out.println("0. Back");
+            if(companies.isEmpty()) {
+                isRunning = false;
+                break;
+            }
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 0) {
                 isRunning = false;
                 break;
             }
+            runCompanyChoices(companies.get(choice - 1));
+            break;
         }
     }
 
@@ -100,7 +107,7 @@ public class App {
             String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
-                    displayCarList();
+                    displayCarList(company.getID());
                     break;
                 case "2":
                     createACar(company.getID());
@@ -120,8 +127,8 @@ public class App {
         carDAO.addCar(carName, company_id);
     }
 
-    private static void displayCarList() {
-        List<Car> cars = carDAO.getAllCars();
+    private static void displayCarList(int company_id) {
+        List<Car> cars = carDAO.getAllCars(company_id);
         if(cars.isEmpty()) {
             System.out.println("The car list is empty!");
         } else {
