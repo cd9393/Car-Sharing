@@ -55,6 +55,5 @@ public class CarDAOImpl implements CarDAO{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }

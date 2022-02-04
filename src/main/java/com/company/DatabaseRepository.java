@@ -39,6 +39,15 @@ public class DatabaseRepository {
         }
     }
 
+    public void createCustomerDatabase(){
+        String sqlCreateCarDb = "CREATE TABLE IF NOT EXISTS CUSTOMER(ID INTEGER PRIMARY KEY auto_increment, NAME VARCHAR(64) UNIQUE NOT NULL, RENTED_CAR_ID INT DEFAULT NULL, CONSTRAINT fk_car FOREIGN KEY (RENTED_CAR_ID) REFERENCES CAR(ID))";
+        try(Connection connection = connect(); Statement statement = connection.createStatement()) {
+            statement.executeUpdate(sqlCreateCarDb);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Connection connect() {
         Connection connection = null;
         try {

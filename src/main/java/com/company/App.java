@@ -31,6 +31,7 @@ public class App {
         com.company.DatabaseRepository db = com.company.DatabaseRepository.getInstance(dbName);
         db.createDatabase();
         db.createCarDatabase();
+        db.createCustomerDatabase();
     }
 
     private static void displayLoginMenu() {
