@@ -8,6 +8,7 @@ public class CompanyDAOImpl implements CompanyDAO{
 
     private static final String GET_ALL_COMPANIES = "SELECT * FROM company;";
     private  static final String ADD_COMPANY = "INSERT INTO company (name) VALUES ?";
+    private static final String GET_COMPANY_BY_ID = "SELECT * FROM company WHERE ID = ?";
 
     public CompanyDAOImpl () {
 
@@ -53,5 +54,20 @@ public class CompanyDAOImpl implements CompanyDAO{
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public Company getCompanyByID(int id) {
+        Company company = null;
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(GET_COMPANY_BY_ID)) {
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                company = new Company(resultSet.getInt("ID"), resultSet.getString("name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
     }
 }

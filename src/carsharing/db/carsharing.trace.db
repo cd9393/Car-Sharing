@@ -33,3 +33,18 @@ INSERT INTO car (name, company_id) VALUES ?, ?; [21002-210]
 	at com.company.App.displayLoginMenu(App.java:42)
 	at com.company.App.start(App.java:26)
 	at com.company.Main.main(Main.java:12)
+2022-02-05 17:23:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CUSTOMERS" not found; SQL statement:
+SELECT * FROM CUSTOMERS [42102-210]
+2022-02-05 17:25:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-210]
+2022-02-05 17:44:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-210]
+2022-02-05 17:50:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-210]
+2022-02-05 17:51:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-210]
+2022-02-05 17:55:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-210]
+2022-02-05 18:06:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-210]

@@ -8,8 +8,9 @@ import java.util.List;
 
 public class CarDAOImpl implements CarDAO{
 
-    private static final String GET_ALL_CARS = "SELECT * FROM car where company_id = ?;";
+    private static final String GET_ALL_CARS = "SELECT * FROM car LEFT JOIN customer on car.ID = customer.RENTED_CAR_ID where company_id = ? AND customer.name IS NULL ;";
     private  static final String ADD_CAR = "INSERT INTO car (name, company_id) VALUES (?, ?);";
+    private static final String GET_CAR_BY_ID = "SELECT * FROM car WHERE ID = ?";
 
     public CarDAOImpl() {
 
@@ -55,5 +56,20 @@ public class CarDAOImpl implements CarDAO{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Car getCarByID(int id) {
+        Car car = null;
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(GET_CAR_BY_ID)) {
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                car = new Car(resultSet.getInt("ID"), resultSet.getString("name"), resultSet.getInt("company_id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return car;
     }
 }

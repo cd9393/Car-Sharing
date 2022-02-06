@@ -3,7 +3,7 @@ package com.company.Customer;
 public class Customer {
     private int ID;
     private String name;
-    private int rentedCarId;
+    private Integer rentedCarId;
 
     public Customer (int ID, String name) {
         this.ID = ID;
@@ -14,6 +14,11 @@ public class Customer {
         this.ID = ID;
         this.name = name;
         this.rentedCarId = rentedCarId;
+    }
+
+    public boolean hasRentedCar(){
+        System.out.println(this.rentedCarId);
+        return this.rentedCarId == 0 ? false : true;
     }
 
     public int getID() {
