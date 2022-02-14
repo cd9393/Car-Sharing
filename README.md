@@ -10,6 +10,6 @@ During the project implementation, you will learn the basics of SQL and work wit
 
 Stage Two description can be found [here](https://github.com/cd9393/Car-Sharing/blob/stageTwo/README.md) 
 
-Stage Two description can be found [here](https://github.com/cd9393/Car-Sharing/blob/stageThree/README.md)
+Stage Three description can be found [here](https://github.com/cd9393/Car-Sharing/blob/stageThree/README.md)
 
-Stage Two description can be found [here](https://github.com/cd9393/Car-Sharing/blob/stageFour/README.md)
+Stage Four description can be found [here](https://github.com/cd9393/Car-Sharing/blob/stageFour/README.md)
